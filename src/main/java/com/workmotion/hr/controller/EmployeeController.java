@@ -1,12 +1,10 @@
 package com.workmotion.hr.controller;
 
-import com.workmotion.hr.service.EmployeeService;
 import com.workmotion.hr.entity.Employee;
+import com.workmotion.hr.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/employees")
@@ -36,7 +34,7 @@ public class EmployeeController {
     public Employee beginCheck(@PathVariable("id") int id) {
         Employee employee = employeeService.findEmployeeById(id);
         StateMachine<String, String> stateMachine = employeeService.beginCheck(employee.getId());
-        return employee;
+       return employee;
     }
 
     @PutMapping("/in-check/{id}")
@@ -53,8 +51,6 @@ public class EmployeeController {
     public Employee activate(@PathVariable("id") int id) {
         Employee employee = employeeService.findEmployeeById(id);
         StateMachine<String, String> stateMachine = employeeService.activate(employee.getId());
-        System.out.println("after calling activate(): " + stateMachine.getState().getId().toString());
-        System.out.println("employee: " + employeeService.findEmployeeById(employee.getId()).getId());
         return employee;
     }
 }
