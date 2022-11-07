@@ -1,5 +1,7 @@
 # WorkMotionCodeChallenge
 
+1) Create the database table using the following Script
+
 CREATE TABLE WORKMOTION.	`EMPLOYEES` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
