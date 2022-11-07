@@ -36,10 +36,6 @@ public class EmployeeController {
     public Employee beginCheck(@PathVariable("id") int id) {
         Employee employee = employeeService.findEmployeeById(id);
         StateMachine<String, String> stateMachine = employeeService.beginCheck(employee.getId());
-
-        // System.out.println("after calling beginCheck(): " + stateMachine.getState().getIds().toString());
-
-        // System.out.println("employee: " + employeeService.findEmployeeById(employee.getId()).getId());
         return employee;
     }
 
@@ -49,10 +45,6 @@ public class EmployeeController {
                             @RequestParam(name = "workPermitCheck") String workPermitCheck) {
         Employee employee = employeeService.findEmployeeById(id);
         StateMachine<String, String> stateMachine = employeeService.inCheck(employee.getId(), securityCheck, workPermitCheck);
-
-        // System.out.println("after calling inCheck(): " + stateMachine.getState().getIds().toString());
-
-        // System.out.println("employee: " + employeeService.findEmployeeById(employee.getId()).getId());
         return employee;
     }
 
