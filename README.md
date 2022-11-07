@@ -27,7 +27,6 @@ CREATE TABLE WORKMOTION.	`EMPLOYEES` (
      
 3.3) In-Check
      PUT http://localhost:9191/employees/in-check/{employeeId}?securityCheck=FINISH_SECURITY_CHECK&workPermitCheck=COMPLETE_INITIAL_WORK_PERMIT_CHECK
-     
      PUT http://localhost:9191/employees/in-check/{employeeId}?securityCheck=FINISH_SECURITY_CHECK&workPermitCheck=FINISH_WORK_PERMIT_CHECK
      
 3.4) Activate Employee
